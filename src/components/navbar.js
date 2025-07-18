@@ -1,40 +1,43 @@
-import Reactl, {useEffect,useState}  from 'react'
+import React, { useEffect } from 'react'
 
-function Navbar({color}) {
-
-
-    // case 1: run on every render
-      useEffect(() => {
-        alert('hye!  Is was run on every render')
-      })
-    
-      //case 2: run only on first render
-      useEffect(() => {
-    
-    
-        alert('hye! thuis is my page , this is a firdt render')
-    
-    
-      }, [])
-      //case 3 : run only when certain value change
-    
-      useEffect(() => {
-    
-        alert('this is run when color is change')
-    
-      }, [color])
-    
-      useEffect(() => {
-    
-    
-        alert('this is new count')
-        setcolor(color + 1)
-    
-    
-      }, [count])
+function Navbar({ color, setcolor, count }) {
 
 
-    
+  // case 1: run on every render
+  useEffect(() => {
+    alert('hye!  Is was run on every render')
+  })
+
+  //case 2: run only on first render
+  useEffect(() => {
+
+
+    alert('hye! this is my page , this is a firdt render')
+
+
+  })
+  //case 3 : run only when certain value change
+
+  useEffect(() => {
+
+    alert('this is run when color is change')
+
+  }, [color])
+
+  useEffect(() => {
+    alert('this is new count')
+    setcolor(color + 1)
+  }, [count])
+
+
+  useEffect(() => {
+
+    alert('this is run when color is change')
+    return () => {
+      alert("this is a error")
+    }
+  })
+
   return (
     <div>
       this is a  navbar color is {color} heheheheheehehe..............
